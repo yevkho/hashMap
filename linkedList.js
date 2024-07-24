@@ -1,12 +1,9 @@
-export function createNode(key, value = null) {
-  // const next = null;
-  return { key, value, next: null };
-}
+import createNode from "./node.js";
 
-export function createLinkedList(head = null) {
+export default function createLinkedList(head = null) {
   //1. adds a new node containing value to the end of the list
-  function appendNode(value) {
-    const newNode = createNode(value);
+  function appendNode(key, value) {
+    const newNode = createNode(key, value);
     const lastNode = getTail();
     if (head == null) {
       head = newNode;
@@ -95,11 +92,25 @@ export function createLinkedList(head = null) {
   }
 
   //9. returns the index of the node containing value, or null if not found.
+  //A
   function findValue(value) {
     let count = 0; //or '0' for array-type indexing
     let currentNode = head;
     while (currentNode) {
       if (currentNode.value == value) {
+        return count;
+      }
+      count++;
+      currentNode = currentNode.next;
+    }
+    return null;
+  }
+  //B
+  function findKey(key) {
+    let count = 0; //or '0' for array-type indexing
+    let currentNode = head;
+    while (currentNode) {
+      if (currentNode.key == key) {
         return count;
       }
       count++;
@@ -186,18 +197,9 @@ export function createLinkedList(head = null) {
     popLast,
     containsValue,
     findValue,
+    findKey,
     toString,
     insertAt,
     removeAt,
   };
 }
-
-//test
-const linkedList = createLinkedList();
-linkedList.appendNode("dogs");
-linkedList.appendNode("cat");
-linkedList.appendNode("parrot");
-linkedList.appendNode("hamster");
-linkedList.appendNode("snake");
-linkedList.appendNode("turtle");
-console.log(linkedList.toString());
