@@ -37,3 +37,7 @@ set.add("Vesna");
 set.add("Vesna");
 
 console.log(set);
+
+console.log(map.keys());
+console.log(map.values());
+console.log(map.entries());

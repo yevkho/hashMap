@@ -15,17 +15,13 @@ export default class HashMap {
 
     if (currentLengthMap > loadFactor) {
       const newCapacity = this.capacity * 2;
-      const newHashMap = new HashMap(newCapacity);
       const oldEntries = this.entries();
+      this.capacity = newCapacity;
+      this.clear();
 
       oldEntries.forEach((entry) => {
-        newHashMap.set(entry[0], entry[1]);
+        this.set(entry[0], entry[1]);
       });
-      console.log(newHashMap);
-
-      this.capacity = newCapacity;
-      this.hashMap = newHashMap.hashMap;
-      this.capacity = newCapacity;
     }
   }
 
@@ -143,6 +139,12 @@ export default class HashMap {
       }
     });
     return keysArray;
+
+    // let arrayMap = this.hashMap.filter(
+    //   (element) => typeof element === "object"
+    // );
+    // console.log(arrayMap);
+    // return arrayMap.map((item) => item.head.key);
   }
 
   //9. returns an array containing all the values.
