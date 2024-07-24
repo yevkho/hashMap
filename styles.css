@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+form {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid #333;
+  margin: 0;
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+
+/* style for the invalid fields (on focus only)*/
+input:invalid:focus,
+select:invalid:focus {
+  border-color: #900;
+  background-color: #fdd;
+}
+
+/* style of our error messages */
+.error {
+  width: 100%;
+  font-size: 0.7rem;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+}
+
+.error.active {
+  padding: 3px 5px;
+}
